@@ -1,0 +1,91 @@
+.listItemContent {
+  display: flex;
+  justify-content: center;
+  text-align: center; 
+}
+.listItemTitle {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.listItemImg {
+  width: 120px;
+  height: 80px;
+}
+.listItemDecs {
+  width: 100%;
+  min-width: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: center;
+  text-align: left;
+  line-height: 25px;
+}
+.listItemValues {
+  min-width: 100px;
+  margin: 10px;
+}
+.listItemCount {
+  display: flex;
+  margin-top: 15px;
+}
+.listItemBtn {
+  margin: 10px;
+}
+.container {
+  display: flex;
+  justify-content: left;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 80px;
+  margin-bottom: 120px;
+}
+.listTitleMenu {
+  background: rgba(0, 0, 0, 0);
+  border-bottom: 0px;
+  line-height: 48px;
+  font-size: 22px;
+}
+.content {
+  width: 100%;
+  margin-left: 20px;
+}
+@media only screen and (max-width: 550px){
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 80px;
+    margin-bottom: 120px;
+  }
+  .listItemContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .listTitle {
+    display: flex;
+    justify-content: left;
+  }
+  .listItemImg {
+    width: 100%;
+    height: 90%;
+    padding-bottom: 10px;
+  }
+  .listItemBtn {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .listTitleMenu {
+    font-size: 16px;
+  }
+  .content {
+    width: 100%;
+    margin: 0px;
+  }
+}

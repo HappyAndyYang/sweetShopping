@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  justify-content: left;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 80px;
+  margin-bottom: 120px;
+}
+.titleItem {
+  flex: 1;
+}
+.titleMenu {
+  background: rgba(0, 0, 0, 0);
+  border-bottom: 0px;
+  line-height: 48px;
+  font-size: 22px;
+}
+.itemContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  color: black;
+}
+.itemTitle {
+  text-align: center;
+}
+.itemImg {
+  width: 120px;
+  height: 80px;
+}
+.itemDecs {
+  width: 90%;
+  min-width: 200px;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: left;
+  line-height: 25px;
+}
+.containerMenu {
+  margin-right: 5%;
+}
+
+@media only screen and (max-width: 550px){
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 80px;
+    margin-bottom: 120px;
+  }
+  .itemContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .itemTitle {
+    display: flex;
+    text-align: center;
+  }
+  .title {
+    display: none;
+  }
+  .itemImg {
+    width: 100%;
+    height: 90%;
+    padding-bottom: 10px;
+  }
+  .itemDecs {
+    width: 100%;
+    line-height: 25px;
+    text-align: left;
+  }
+  .titleItem {
+    margin-top: 20px;
+  }
+  .btn {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
