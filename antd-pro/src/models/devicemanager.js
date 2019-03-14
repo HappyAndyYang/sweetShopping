@@ -1,4 +1,4 @@
-import { queryOrderList } from '@/services/api';
+import { queryOrderList, clearCar } from '@/services/api';
 import { message } from 'antd';
 
 export default {
@@ -21,6 +21,22 @@ export default {
       console.log('orderlist response=>', response);
       const { result: { resultCode, message: msg } } = response;
       if (resultCode === 200) {
+        yield put({
+          type: 'save',
+          payload: response,
+        });
+      } else {
+        message.error(msg);
+      }
+    },
+    *pay({ payload }, { call, put }) {
+      console.log(payload);
+      const response = yield call(clearCar, payload);
+      console.log('payresult', response);
+      const { result: { resultCode, message: msg } } = response;
+      if (resultCode === 200) {
+        localStorage.removeItem('shoppingContent');
+        localStorage.removeItem('shoppingUrl');
         yield put({
           type: 'save',
           payload: response,

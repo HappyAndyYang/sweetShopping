@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
+import { routerRedux } from 'dva/router';
 
 import styles from '../index.less';
 
@@ -12,6 +13,13 @@ function getDecsInfo(values) {
 }
 
 class Item extends Component {
+  handleOnclick = () => {
+    const {
+      dispatch,
+    } = this.props;
+    dispatch(routerRedux.push('/personal/'));
+  }
+
   render() {
     const {
       title,
@@ -38,7 +46,7 @@ class Item extends Component {
         </div>
         <div className={styles.listItemValues}>
           <div className={styles.listItemCount}>
-            <Button className={styles.listItemBtn}>
+            <Button className={styles.listItemBtn} onClick={this.handleOnclick}>
                 再次购买
             </Button>
             <Button className={styles.listItemBtn}>

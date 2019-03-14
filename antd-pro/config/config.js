@@ -50,8 +50,8 @@ export default {
   },
   proxy: {
     '/api/': {
-      // target: 'http://localhost:8080/',
-      target: 'http://47.98.235.69:8080/',
+      target: 'http://localhost:8080/',
+      // target: 'http://47.98.235.69:8080/',
       // target: 'http://192.168.2.152/',
       changeOrigin: true,
       // pathRewrite: { '^/api': '' },
@@ -84,7 +84,7 @@ export default {
     },
   },
   manifest: {
-    name: 'ant-design-pro',
+    name: '点甜农场',
     background_color: '#FFF',
     description: 'An out-of-box UI solution for enterprise applications as a React boilerplate.',
     display: 'standalone',

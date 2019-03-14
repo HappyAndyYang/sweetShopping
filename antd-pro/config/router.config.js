@@ -26,6 +26,7 @@ export default [
       { path: '/personal/addressManage/', component: './Personal/AddressManage/index' },
       { path: '/personal/deviceManage/', component: './Personal/DeviceManage/index' },
       { path: '/personal/orderManage/', component: './Personal/OrderManage/index' },
+      { path: '/personal/pay/', component: './Personal/ShoppingCar/pay' },
     ],
   },
   {

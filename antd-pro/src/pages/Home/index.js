@@ -1,29 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { routerRedux } from 'dva/router';
 import Header from '@/components/Header/index';
 import Footer from '@/components/Footer/index';
-import { message } from 'antd';
 import Products from './Products';
 import Features from './Features';
 import Symbol from './Symbol';
 import Customer from './Customer';
-import { authoryzed } from '@/utils/utils';
 import styles from './style.less';
 
 @connect(({ login, global }) => ({
   login, global,
 }))
 class Home extends Component {
-  componentDidMount() {
-    const { dispatch } = this.props;
-    const authFlag = authoryzed();
-    if (!authFlag) {
-      dispatch(routerRedux.push('/login'));
-      message.error('登录超时，请重新登录');
-    }
-  }
-
   render() {
     const { dispatch, global } = this.props;
     return (

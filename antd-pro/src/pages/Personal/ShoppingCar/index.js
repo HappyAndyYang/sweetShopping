@@ -10,8 +10,8 @@ import ShoppingCarList from './ShoppingCarList';
 
 import styles from './index.less';
 
-@connect(({ shoppingcar, global }) => ({
-  shoppingcar, global,
+@connect(({ shoppingcar, global, pay }) => ({
+  shoppingcar, global, pay,
 }))
 class ShoppingCar extends Component {
   componentDidMount() {
@@ -32,7 +32,7 @@ class ShoppingCar extends Component {
   }
 
   render() {
-    const { dispatch, global, shoppingcar } = this.props;
+    const { dispatch, global, shoppingcar, pay } = this.props;
     console.log('shoppingcar=>', shoppingcar);
     return (
       <div>
@@ -42,6 +42,7 @@ class ShoppingCar extends Component {
           <ShoppingCarList
             className={styles.containerItem}
             shoppingcar={shoppingcar}
+            pay={pay}
             dispatch={dispatch}
           />
         </div>

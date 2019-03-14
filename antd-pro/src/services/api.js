@@ -75,6 +75,17 @@ export async function queryUserShoopingCar(params) {
   return request(`/api/getUserShoppingCar?${stringify(params)}`);
 }
 
+export async function queryPay(params) {
+  // return request(`/api/pay?${stringify(params)}`);
+  return request('/api/pay', {
+    method: 'POST',
+    body: {
+      ...params,
+      method: 'post',
+    },
+  });
+}
+
 export async function updateShoppingCarCount(params) {
   return request('/api/updateShoppingCarCount', {
     method: 'POST',
@@ -127,6 +138,16 @@ export async function delAddress(params) {
 
 export async function updateAddress(params) {
   return request('/api/delAddressManager', {
+    method: 'POST',
+    body: {
+      ...params,
+      method: 'post',
+    },
+  });
+}
+
+export async function clearCar(params) {
+  return request('/api/clearCar', {
     method: 'POST',
     body: {
       ...params,

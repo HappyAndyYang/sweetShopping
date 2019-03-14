@@ -3,6 +3,9 @@ import { connect } from 'dva';
 import Header from '@/components/Header/index';
 import Footer from '@/components/Footer/index';
 import PersonalMenu from '@/components/Personal/PersonalMenu/index';
+import { routerRedux } from 'dva/router';
+import { message } from 'antd';
+import { authoryzed } from '@/utils/utils';
 import ProductList from './ProductList';
 import DeviceList from './DeviceList';
 
@@ -12,6 +15,15 @@ import styles from './index.less';
   shopping, global, personalui,
 }))
 class ShoppingPage extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    const authFlag = authoryzed();
+    if (!authFlag) {
+      dispatch(routerRedux.push('/login'));
+      message.error('登录超时，请重新登录');
+    }
+  }
+
   render() {
     let flag = true;
     const { dispatch, global, personalui: { selectedKeys }, shopping } = this.props;

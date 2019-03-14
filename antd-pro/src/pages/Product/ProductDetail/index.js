@@ -3,7 +3,9 @@ import Header from '@/components/Header/index';
 import Footer from '@/components/Footer/index';
 import ProductMenu from '@/components/Personal/ProductMenu/index';
 import { connect } from 'dva';
-import { getSeq } from '@/utils/utils';
+import { message } from 'antd';
+import { routerRedux } from 'dva/router';
+import { getSeq, authoryzed } from '@/utils/utils';
 import styles from '../index.less';
 
 @connect(({ product, global }) => ({
@@ -12,13 +14,19 @@ import styles from '../index.less';
 class ProductBuy extends Component {
   componentDidMount() {
     const { dispatch, match: { params: { id } } } = this.props;
-    dispatch({
-      type: 'product/query',
-      payload: {
-        seq: getSeq(),
-        id,
-      },
-    });
+    const authFlag = authoryzed();
+    if (!authFlag) {
+      dispatch(routerRedux.push('/login'));
+      message.error('登录超时，请重新登录');
+    } else {
+      dispatch({
+        type: 'product/query',
+        payload: {
+          seq: getSeq(),
+          id,
+        },
+      });
+    }
   }
 
   render() {

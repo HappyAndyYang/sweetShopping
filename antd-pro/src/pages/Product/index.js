@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
+import { routerRedux } from 'dva/router';
 import Header from '@/components/Header/index';
 import Footer from '@/components/Footer/index';
 import ProductMenu from '@/components/Personal/ProductMenu/index';
-import { getSeq } from '@/utils/utils';
+import { getSeq, authoryzed } from '@/utils/utils';
+import { message } from 'antd';
 import Decs from './Decs';
 
 import styles from './index.less';
@@ -14,10 +16,16 @@ import styles from './index.less';
 class Product extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch({
-      type: 'product/query',
-      payload: { seq: getSeq() },
-    });
+    const authFlag = authoryzed();
+    if (!authFlag) {
+      dispatch(routerRedux.push('/login'));
+      message.error('登录超时，请重新登录');
+    } else {
+      dispatch({
+        type: 'product/query',
+        payload: { seq: getSeq() },
+      });
+    }
   }
 
   render() {

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
+import { routerRedux } from 'dva/router';
 import Header from '@/components/Header/index';
 import Footer from '@/components/Footer/index';
 import PersonalMenu from '@/components/Personal/PersonalMenu/index';
-
+import { authoryzed } from '@/utils/utils';
+import { message } from 'antd';
 import AddressList from './AddressList';
 import AddressAdd from './AddressAdd';
 
@@ -13,6 +15,15 @@ import styles from './index.less';
   personal, global, province, addressmanager, personalui,
 }))
 class MyAddress extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    const authFlag = authoryzed();
+    if (!authFlag) {
+      dispatch(routerRedux.push('/login'));
+      message.error('登录超时，请重新登录');
+    }
+  }
+
   render() {
     let flag = true;
     const { dispatch, global, personalui: { selectedKeys }, province, addressmanager } = this.props;

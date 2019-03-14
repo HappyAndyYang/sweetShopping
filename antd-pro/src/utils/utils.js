@@ -242,3 +242,27 @@ export function Status2Name(aObj, status) {
   }
   return status;
 }
+
+export function getQueryStrFromUrl(str, url) {
+  // const url = 'http://localhost:8000/personal/deviceManage?payresult=sucess&charset=utf-8&out_trade_no=23bbd251191644b9a00e66f21a0e7678&method=alipay.trade.page.pay.return&total_amount=81&trade_no=2019030922001494020595105994&auth_app_id=2019030563472072&version=1.0&app_id=2019030563472072&sign_type=RSA2&seller_id=2088131445267373&timestamp=2019-03-09+22%3A35%3A53';
+  const urlString = String(url);
+  // const urlString = String(window.document.location.href);
+  const rs = new RegExp(`(^|)${str}=([^&]*)(&|$)`, 'gi').exec(urlString);
+  const tmp = rs;
+  if (tmp) {
+    return tmp[2];
+  }
+  return null;
+}
+
+// export function getQueryStrFromUrl2(str, url) {
+//   // const url = 'http://localhost:8000/personal/deviceManage?payresult=sucess&charset=utf-8&out_trade_no=23bbd251191644b9a00e66f21a0e7678&method=alipay.trade.page.pay.return&total_amount=81&trade_no=2019030922001494020595105994&auth_app_id=2019030563472072&version=1.0&app_id=2019030563472072&sign_type=RSA2&seller_id=2088131445267373&timestamp=2019-03-09+22%3A35%3A53';
+//   const urlString = String(url);
+//   // const urlString = String(window.document.location.href);
+//   const rs = new RegExp(`(^|)${str}=([^&]*)(&|$)`, 'gi').exec(urlString);
+//   const tmp = rs;
+//   if (tmp) {
+//     return tmp[2];
+//   }
+//   return null;
+// }

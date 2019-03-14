@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Input, Button, Form, message } from 'antd';
 import { connect } from 'dva';
+import { routerRedux } from 'dva/router';
 import Header from '@/components/Header/index';
 import Footer from '@/components/Footer/index';
 import PersonalMenu from '@/components/Personal/PersonalMenu/index';
-import { getSeq, checkPhone } from '@/utils/utils';
+import { getSeq, authoryzed } from '@/utils/utils';
 
 import styles from './index.less';
 
@@ -14,6 +15,15 @@ const FormItem = Form.Item;
   personal, global, login,
 }))
 class PersonalInfo extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    const authFlag = authoryzed();
+    if (!authFlag) {
+      dispatch(routerRedux.push('/login'));
+      message.error('登录超时，请重新登录');
+    }
+  }
+
   handleSubmit = () => {
     const {
       dispatch,
