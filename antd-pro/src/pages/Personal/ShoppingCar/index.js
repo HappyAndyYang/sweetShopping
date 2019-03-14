@@ -33,7 +33,6 @@ class ShoppingCar extends Component {
 
   render() {
     const { dispatch, global, shoppingcar, pay } = this.props;
-    console.log('shoppingcar=>', shoppingcar);
     return (
       <div>
         <div><Header nomal dispatch={dispatch} global={global} /></div>

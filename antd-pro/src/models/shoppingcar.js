@@ -17,7 +17,6 @@ export default {
   effects: {
     *query({ payload }, { call, put }) {
       const response = yield call(queryUserShoopingCar, payload);
-      console.log('response=>', response);
       const { result: { resultCode, message: msg } } = response;
       if (resultCode === 200) {
         yield put({

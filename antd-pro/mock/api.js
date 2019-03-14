@@ -69,7 +69,6 @@ function getProductDetail(req, res, u) {
   const params = parse(url, true).query;
   const { flag } = params;
 
-  console.log('params=>', flag);
   let dataSource = {};
   const decs = [{
     key: 1,

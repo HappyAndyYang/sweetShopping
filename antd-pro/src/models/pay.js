@@ -13,7 +13,6 @@ export default {
   effects: {
     *pay({ payload }, { call, put }) {
       const response = yield call(queryPay, payload);
-      console.log(response);
       const { result: { resultCode, message: msg } } = response;
       if (resultCode === 200) {
         yield put({

@@ -15,7 +15,6 @@ export default {
   effects: {
     *query({ payload }, { call, put }) {
       const response = yield call(getAllProvince, payload);
-      console.log('getAllProvince=>', response);
       const { result: { resultCode, message: msg } } = response;
       if (resultCode === 200) {
         yield put({

@@ -27,7 +27,6 @@ export default {
     },
     *query({ payload }, { call, put }) {
       const response = yield call(getAddress, payload);
-      console.log('response==>', response);
       const { result: { resultCode, message: msg } } = response;
       if (resultCode === 200) {
         yield put({
@@ -40,7 +39,6 @@ export default {
     },
     *delete({ payload }, { call, put }) {
       const response = yield call(delAddress, payload);
-      console.log('=>', response);
       const { result: { resultCode, message: msg } } = response;
       if (resultCode === 200) {
         yield put({

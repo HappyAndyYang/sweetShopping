@@ -16,18 +16,8 @@ export default {
   },
 
   effects: {
-    // *update({ payload }, { call, put }) {
-    //   const response = yield call(updatePersonalInfo, payload);
-    //   const { status } = response;
-    //   yield put({
-    //     type: 'save',
-    //     payload: response,
-    //   });
-    //   console.log(status === 200);
-    // },
     *query({ payload }, { call, put }) {
       const response = yield call(queryProductShooping, payload);
-      console.log('response=>', response);
       const { result: { resultCode, message: msg } } = response;
       if (resultCode === 200) {
         yield put({

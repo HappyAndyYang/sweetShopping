@@ -60,7 +60,6 @@ const MenuItem = Menu.Item;
 class OrderList extends Component {
   render() {
     const { orderlist: { data: { list } } } = this.props;
-    console.log('list==>', list);
     return (
       <div className={styles.content}>
         <Menu

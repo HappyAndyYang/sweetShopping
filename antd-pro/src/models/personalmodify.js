@@ -15,7 +15,6 @@ export default {
   effects: {
     *query({ payload }, { call, put }) {
       const response = yield call(personalModify, payload);
-      console.log('response==>', response);
       const { result: { resultCode, message: msg }, data: { list } } = response;
       if (resultCode === 200) {
         // eslint-disable-next-line array-callback-return
